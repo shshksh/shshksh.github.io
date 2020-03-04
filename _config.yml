@@ -15,20 +15,21 @@
 minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
-title                    : "이게 된다고?"
+locale                   : "ko-KR"
+title                    : "Seonghwan Kim"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : "https://shshksh.github.io"# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+subtitle                 : "나도 깃허브 블로그를 깔끔하게 꾸미고 싶다."
+name                     : "Seonghwan Kim"
+description              : "일단 끄적거려 보자."
+url                      : "https://shshksh.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "shshksh/shshksh.github.io"# GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "shshksh/shshksh.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/oldcat-logo.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
+
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
@@ -65,6 +66,7 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
+
 search                   : # true, false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia, google
@@ -108,17 +110,17 @@ analytics:
 # Site Author
 author:
   name             : "Seonghwan"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  avatar           : "assets/images/oldcat.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "shshksh page"
   location         : "Korea"
-  email            :
+  email            : "ksh970516@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
+      # url: mailto:ksh970516@email.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "https://shshksh.github.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
@@ -143,7 +145,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https:github.com/shshksh"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -293,3 +295,10 @@ defaults:
       comments: # true
       share: true
       related: true
+  #_pages    
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
