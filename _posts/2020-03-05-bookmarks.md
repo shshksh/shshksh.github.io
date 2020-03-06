@@ -1,12 +1,12 @@
 ---
 title: "프로그래밍 관련 유용한 사이트 정리"
 excerpt: "프로그래밍 관련 유용한 사이트 정리"
+classes: wide
 categories: 
   - Uncategorized
 read_time: false
 last_modified_at: 2020-03-04T23:49:00+09:00
 toc: true
-toc_sticky: true
 ---
 # 북마크 정리
 

@@ -1,12 +1,12 @@
 ---
 title: "안드로이드 UI #1-기초"
 excerpt: "안드로이드 UI의 기초"
-layout: posts
+classes: wide
 categories: 
   - Android
 read_time: false
 last_modified_at: 2020-03-06T20:20:00+09:00
-# toc: true
+toc: true
 # toc_sticky: true
 ---
 

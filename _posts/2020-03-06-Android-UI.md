@@ -2,10 +2,12 @@
 title: "안드로이드 UI #2-레이아웃"
 excerpt: "안드로이드 레이아웃의 종류와 사용"
 # layout: posts
+classes: wide
 categories: 
   - Android
 read_time: false
 last_modified_at: 2020-03-06T20:30:00+09:00
+toc: true
 ---
 
 ## 레이아웃
