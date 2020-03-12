@@ -5,6 +5,9 @@ excerpt: "안드로이드 레이아웃의 종류와 사용"
 classes: wide
 categories: 
   - Android
+tag:
+  - android
+  - UI
 read_time: false
 last_modified_at: 2020-03-06T20:30:00+09:00
 toc: true
