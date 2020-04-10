@@ -1,6 +1,6 @@
 ---
-title: "하울 안드로이드 인스타그램 클론 코딩 #5 메인 내비게이션바"
-excerpt: "화면을 이동하는 내비게이션바 구현"
+title: "하울 안드로이드 인스타그램 클론 코딩 #6 이미지 업로드 구현"
+excerpt: "이미지를 업로드하는 페이지를 만들고 업로드하는 이미지를 Firebase storage에 저장한다."
 classes: wide
 categories: 
   - clone_coding
@@ -9,7 +9,7 @@ tag:
   - clone_coding
   - howlstagram
 read_time: false
-last_modified_at: 2020-04-05T15:30:00+09:00
+last_modified_at: 2020-04-10T23:35:00+09:00
 toc: true
 ---
 
