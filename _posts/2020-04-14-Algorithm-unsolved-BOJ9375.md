@@ -1,11 +1,12 @@
 ---
-title: "알고리즘 오답노트 BOJ9375"
+title: "알고리즘 풀이 BOJ9375"
 classes: wide
 categories: 
   - Algorithm
 tag:
   - algorithm
   - boj
+  - unsolved
 read_time: false
 last_modified_at: 2020-04-14T23:10:00+09:00
 toc: true
