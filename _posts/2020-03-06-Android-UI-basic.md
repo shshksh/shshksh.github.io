@@ -16,7 +16,7 @@ toc: true
 - **ViewGroup** 클래스는 뷰의 확장판으로 자식 뷰의 추가를 지원. 뷰 그룹은 자식 뷰의 크기와 위치를 결정한다. 자식 뷰의 배치를 주로 담당하는 뷰 그룹을 **레이아웃** 이라고 한다.
 - 뷰의 생성과 배치는 코드상에서도 가능하지만, **XML** 레이아웃 리소스를 사용하여 구성하는 방법이 더욱 유연한 접근성을 제공한다.
 
-![view-viewgroup](/assets/images/view-viewgroup.png){: .align-center}
+![view-viewgroup](/assets/images/view-viewgroup.png){:.align-center}
 
 (**출처:** [안드로이드 개발자 가이드](https://developer.android.com/guide/topics/ui/declaring-layout.html#layout-params))
 

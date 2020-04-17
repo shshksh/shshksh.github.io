@@ -79,7 +79,7 @@ batch monitor의 한계: 비동기적 입출력의 경우 CPU의 사용성을 �
 
 **멀티 프로그래밍 메모리 구조**
 
-![multi-programming memory structure](../assets/images/Memory Layout For A Multiprogramming System.jpg)
+![multi-programming memory structure](/assets/images/Memory Layout For A Multiprogramming System.jpg)
 
 
 
