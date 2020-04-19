@@ -25,15 +25,15 @@ url                      : "https://shshksh.github.io" # the base hostname & pro
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "shshksh/shshksh.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/oldcat-logo.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : # "/assets/images/oldcat-logo.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
+  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : "shshksh-github-io" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -110,7 +110,7 @@ analytics:
 # Site Author
 author:
   name             : "Seonghwan"
-  avatar           : "assets/images/oldcat.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : # "assets/images/oldcat.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "shshksh page"
   location         : "Korea"
   email            : "ksh970516@gmail.com"
@@ -292,7 +292,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true
       share: true
       related: true
   #_pages    
