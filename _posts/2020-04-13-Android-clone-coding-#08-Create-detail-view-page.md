@@ -1,5 +1,5 @@
 ---
-title: "하울 안드로이드 인스타그램 클론 코딩 #8 상세하면 페이지"
+title: "하울 안드로이드 인스타그램 클론 코딩 #8 상세화면 페이지"
 excerpt: "RecyclerView를 이용하여 firebase DB의 데이터를 상세화면 페이지에 표현한다."
 classes: wide
 categories: 
