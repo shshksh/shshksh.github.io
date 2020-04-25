@@ -73,7 +73,7 @@ toc: true
 
 
 
-**Kernal space vs User space**
+**Kernel space vs User space**
 
 - **커널 모드**
   - 유저 모드에 비해 강력한 system state
@@ -113,7 +113,7 @@ toc: true
   - **Thread of control**
 - 어떤 프로세스의 실행 상황은 **Stack**을 통해 확인할 수 있다.
 - Stack은 해당 프로세스의 run-time entity
-- 프로세스가 user mode에서 수행될 때는 user mode stack을 사용하고, 커널 모드에서 수행될 때는 kernal mode stack을 사용한다. ⇒ **run-time context의 변화**
+- 프로세스가 user mode에서 수행될 때는 user mode stack을 사용하고, 커널 모드에서 수행될 때는 kernel mode stack을 사용한다. ⇒ **run-time context의 변화**
 - run-time context가 변화하더라도 수행의 주체는 여전히 user process이다.
 
 
