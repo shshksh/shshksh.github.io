@@ -7,7 +7,7 @@ categories:
 tags:
     - OS
     - operating system
-read_time: false
+read_time: falsek
 last_modified_at: 2020-05-05T23:35:00+09:00
 toc: true
 ---
@@ -186,3 +186,115 @@ TAS는 멀티 프로세서 환경에서 동기화를 제공하지만 busy waitin
 **busy waiting (spinning)**
 
 루프를 돌며 특정 조건의 만족 여부를 확인하는 기법. 크게 의미가 없는 작업을 반복하며 자원을 불필요하게 소모.
+
+
+
+
+
+## Monitor
+
+고 수준의 추상화 도구. 세마포어와 동일한 기능을 제공하며 보다 사용하기 쉽다.
+
+**모니터 구성**
+
+- 공유 자원
+- 자원에 대한 연산
+- 동기화, 스케줄링 기능
+
+
+
+## Condition Variables
+
+condition: 특정 조건이 충족되기를 기다리는 프로세스들의 waiting queue
+
+-  **wait(condition)**
+  - 특정 이벤트가 발생하면 프로세스를 대기시키는 메서드.
+  - 모니터의 잠금을 해제, 프로세스를 대기시킨다.
+  - 프로세스가 깨어날 때 다시 잠근다.
+- **signal(condition)**
+  - condition variables 상에서 대기중인 프로세스를 깨운다.
+  - 대기중인 프로세스가 없다면 아무일도 하지 않는다.
+
+
+
+**sample monitor**
+
+```kotlin
+Monitor resourceManager {
+	var busy : Boolean
+	var x : Queue
+    
+    init {
+        busy = false
+    }
+    procedure entry acquire() {
+        if(busy)
+        	x.wait
+        busy = true
+    } 
+    procedure entry release() {
+        busy = false
+        x.signal
+    }
+}
+```
+
+**모니터에서 공유되는 데이터를 보호하지 않는 이유**
+
+모니터 자체적으로 한번에 하나의 프로세스만 내부 메서드를 수행할 수 있도록 허용하기 때문이다.
+
+
+
+**모니터 종류**
+
+- **Hoare Style Monitor(signal-and-urgent-wait monitor)**
+  - wait queue 에서 깨어난 프로세스가 바로 모니터 내부로 진입하는 방식의 모니터
+
+- **Brinch-Hansen Style Monitor**
+  - wait queue 에 signal을 보낸 프로세스가 수행을 계속 하는 방식의 모니터
+
+
+
+## Implementation
+
+**Signaler queue**
+
+Hoare style monitor에서 signal을 보낸 process가 monitor 밖에서 대기하기 위한 큐
+
+
+
+```C++
+monitor_lock: 모니터 큐를 위한 세마포어, 모니터의 진입에 사용
+sig_lock: signaler 큐를 위한 세마포어
+x_lock: x(waiting queue)를 위한 세마포어
+
+Implementation {
+	// 진입점
+	P(monitor_lock);
+	// Body of Function
+	if(sig_lock_cnt > 0) {
+		V(sig_lock);
+	} else {
+		V(monitor_lock);
+	}
+	
+	// wait
+	x_cnt++;
+    if(sig_lock_cnt > 0) {
+        V(sig_lock);
+    } else {
+        V(monitor_lock);
+    }
+    P(x_lock);
+    x_cnt--;
+    
+    // signal
+    if(x_cnt > 0) {
+        sig_lock_cnt++;
+        V(x_lock);
+        P(sig_lock);
+        sig_lock_cnt--;
+    }
+}
+```
+
