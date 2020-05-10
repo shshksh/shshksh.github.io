@@ -4,10 +4,12 @@ excerpt: "안드로이드 UI의 기초"
 classes: wide
 categories: 
   - Android
+tag:
+  - android
+  - UI
 read_time: false
-last_modified_at: 2020-03-06T20:20:00+09:00
+last_modified_at: 2020-05-10T22:00:00+09:00
 toc: true
-# toc_sticky: true
 ---
 
 ## 안드로이드 UI의 기초
