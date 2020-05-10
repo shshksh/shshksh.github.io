@@ -1,5 +1,5 @@
 ---
-title: "Context switching"
+title: "운영체제-9 Context switching"
 excerpt: "OS L5 S2, L6 S1"
 classes: wide
 categories:

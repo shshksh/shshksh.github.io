@@ -1,5 +1,5 @@
 ---
-title: "하드웨어 프로텍션 메커니즘"
+title: "운영체제-6 하드웨어 프로텍션 메커니즘"
 excerpt: "OS L3 S3"
 classes: wide
 categories:

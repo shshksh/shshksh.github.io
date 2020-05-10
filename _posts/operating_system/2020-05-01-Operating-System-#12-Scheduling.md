@@ -1,5 +1,5 @@
 ---
-title: "Scheduling"
+title: "운영체제-12 Scheduling"
 excerpt: "OS L8 S2 - L9"
 classes: wide
 categories:

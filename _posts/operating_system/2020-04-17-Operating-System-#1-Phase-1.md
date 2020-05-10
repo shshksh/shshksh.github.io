@@ -1,5 +1,5 @@
 ---
-title: "운영체제의 발전 - Phase 1"
+title: "운영체제-1 운영체제의 발전 #1"
 classes: wide
 categories: 
   - OS

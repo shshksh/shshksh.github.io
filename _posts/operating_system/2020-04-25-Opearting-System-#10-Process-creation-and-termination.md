@@ -1,5 +1,5 @@
 ---
-title: "Process creation and termination"
+title: "운영체제-10 Process creation and termination"
 excerpt: "OS L6 S2, S3"
 classes: wide
 categories:

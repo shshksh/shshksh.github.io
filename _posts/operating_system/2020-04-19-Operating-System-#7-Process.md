@@ -1,5 +1,5 @@
 ---
-title: "프로세스"
+title: "운영체제-7 프로세스"
 excerpt: "OS L4 S1, S2"
 classes: wide
 categories:

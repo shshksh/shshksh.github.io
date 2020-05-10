@@ -1,5 +1,5 @@
 ---
-title: "컴퓨터 시스템 아키텍쳐"
+title: "운영체제-4 컴퓨터 시스템 아키텍쳐"
 excerpt: "OS L3 S1"
 classes: wide
 categories:

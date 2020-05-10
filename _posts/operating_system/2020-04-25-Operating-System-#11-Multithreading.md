@@ -1,5 +1,5 @@
 ---
-title: "Multithreading"
+title: "운영체제-11 Multithreading"
 excerpt: "OS L7"
 classes: wide
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "운영체제의 기능"
+title: "운영체제-3 운영체제의 기능"
 classes: wide
 categories: 
   - OS

@@ -1,5 +1,5 @@
 ---
-title: "운영체제의 발전 - Phase 2,3"
+title: "운영체제-2 운영체제의 발전 #2"
 classes: wide
 categories: 
   - OS

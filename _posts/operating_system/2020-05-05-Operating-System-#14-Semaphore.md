@@ -7,7 +7,7 @@ categories:
 tags:
     - OS
     - operating system
-read_time: falsek
+read_time: false
 last_modified_at: 2020-05-05T23:35:00+09:00
 toc: true
 ---

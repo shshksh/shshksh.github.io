@@ -1,5 +1,5 @@
 ---
-title: "인터럽트 메커니즘"
+title: "운영체제-5 인터럽트 메커니즘"
 excerpt: "OS L3 S2"
 classes: wide
 categories:

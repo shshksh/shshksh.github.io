@@ -1,5 +1,5 @@
 ---
-title: "프로세스 스케줄링"
+title: "운영체제-8 프로세스 스케줄링"
 excerpt: "OS L4 S3, L5 S1"
 classes: wide
 categories:
