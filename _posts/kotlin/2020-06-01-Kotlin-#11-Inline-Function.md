@@ -1,5 +1,5 @@
 ---
-title: "Kotlin for Java Developers Week 4 - Inline Function"
+title: "Kotlin for Java Developers Week 5 - Inline Function"
 excerpt: "Kotlin Inline Function"
 classes: wide
 categories: 

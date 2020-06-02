@@ -1,5 +1,5 @@
 ---
-title: "Kotlin for Java Developers Week 4 - Sequences"
+title: "Kotlin for Java Developers Week 5 - Sequences"
 excerpt: "Kotlin Sequences"
 classes: wide
 categories: 

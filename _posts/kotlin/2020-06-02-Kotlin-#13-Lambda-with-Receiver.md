@@ -1,5 +1,5 @@
 ---
-title: "Kotlin for Java Developers Week 4 - Lambda with Receiver"
+title: "Kotlin for Java Developers Week 5 - Lambda with Receiver"
 excerpt: "Kotlin lambda with Receiver"
 classes: wide
 categories: 
