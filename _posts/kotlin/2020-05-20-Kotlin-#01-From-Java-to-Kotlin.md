@@ -52,7 +52,7 @@ class Person(val name: String, val age: Int)
 
 내부적으로, 위의 코틀린 코드는 바이트코드 단계에서 자바 코드의 생성자와 두 개의 `getter` 가 생성되기때문에 결과적으로 두 클래스는 동일한 클래스이다.
 
-추가적으로 코틀린 클래스에 'data' modifier 를 추가한다면 `equals, hashCode, toSting` 등의 메서드를 자동으로 생성해준다.
+추가적으로 코틀린 클래스에 `data` modifier 를 추가한다면 `equals, hashCode, toSting` 등의 메서드를 자동으로 생성해준다.
 
 *val 같은 변수나 함수의 선언, 사용은 추후에 다룬다.*
 
@@ -65,7 +65,7 @@ Person person = new Person("Alce", 27);
 System.out.println(person.getName());
 ```
 
-자바에서는 먼저 `Person` 클래스의 객체를 만들고 `getName` 메서드를 이용하여 내부 필드에 접근한다. 코들린에서는 위의 작업을 다음과 같이 표현할 수 있다.
+자바에서는 먼저 `Person` 클래스의 객체를 만들고 `getName` 메서드를 이용하여 내부 필드에 접근한다. 코틀린에서는 위의 작업을 다음과 같이 표현할 수 있다.
 
 ```kotlin
 val person = Person("Alice", 27)
