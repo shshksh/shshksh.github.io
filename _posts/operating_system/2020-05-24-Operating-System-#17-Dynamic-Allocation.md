@@ -1,3 +1,17 @@
+---
+title: "운영체제-17 Dynamic Allocation"
+excerpt: "OS L14 S1 - S2"
+classes: wide
+categories:
+    - OS
+tags:
+    - OS
+    - operating system
+read_time: false
+last_modified_at: 2020-05-24T20:00:00+09:00
+toc: true
+---
+
 ## 개요
 
 **Activation Records(Stack Frames or Activiaton Frames)**

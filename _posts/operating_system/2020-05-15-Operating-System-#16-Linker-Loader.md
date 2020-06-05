@@ -1,5 +1,5 @@
 ---
-title: "운영체제-15 Linker and Loader"
+title: "운영체제-16 Linker and Loader"
 excerpt: "OS L13 S1 - L13 S2"
 classes: wide
 categories:
