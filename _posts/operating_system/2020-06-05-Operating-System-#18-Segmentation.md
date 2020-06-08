@@ -77,5 +77,50 @@ toc: true
 
 # Paging
 
+**Fragmentation 의 원인**
+
+프로세스가 요구하는 메모리의 사이즈가 제각각이다.
+
+**paging**
+
+프로세스가 요구하는 메모리 사이즈를 **page** 라고 하는 **unit size** 로 나누어 메모리를 할당하는 기법. fragmentation 을 피할 수 있고 메모리 관리가 단순해 진다.
+
+**page**
+
+Logical Address Space 를 일정한 크기로 나눈 메모리 블럭.
+
+**frame**
+
+Physical Address Space 를 일정한 크기로 나눈 메모리 블럭으로 page 와 크기가 동일하다.
+
+
+
+## Solutions
+
+**Paging**
+
+- 전체 메모리를 page 라고 하는 일정한 크기의 블럭으로 나눈다. 일반적으로 512 to 16 Kb 의 크기를 가진다.
+- 각각의 프로세스가 page table 에 정의된다.
+- segmentation 과 비슷한 방식의 주소 변환이 이루어진다. (PTBR: Page Table Base Register)
+- internal fragmentation 이라고 하여 메모리의 사이즈가 page 크기의 배수가 아닐 때 마지막 page 는 온전한 크기를 가지지 못하지만, page 의 사이즈가 작기 때문에 큰 문제가 되지 않는다.
+
+
+
+**장점**
+
+- fragmentation 의 회피
+- 효과적인 스와핑
+- 메모리 할당이 용이
+
+ 
+
+**단점**
+
+- 메모리 접근에 대한 추가적인 연산
+- page table 의 크기가 방대해짐
+- paging 이 fragmentation 문제는 해결할 수 있지만 프로세스에게 하나의 세그먼트가 부여된다는 문제가 해결되지는 않는다.
+
+
+
 
 
