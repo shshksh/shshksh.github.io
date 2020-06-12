@@ -100,7 +100,7 @@ page table 은 unmapped page 로 physical 메모리 영역에 contiguous 하게 
 - **issue**: 적중률
 - TLB 의 사이즈를 키우는 방법은 적중률을 높일 수 있지만 그만큼 비용이 상승한다. 하지만 64 ~ 128 개의 TLB 만으로도 98% 가량의 높은 적중률이 나타난다. why? **locality**
   - spatial locality(공간적 지역성)
-  - temporal localiy(시간적 지역성)
+  - temporal locality(시간적 지역성)
   - 어떤 페이지가 루프에 있다면 해당 페이지를 다시 참조할 가능성이 매우  높다.
 - TLB란? 일종의 캐시
 
