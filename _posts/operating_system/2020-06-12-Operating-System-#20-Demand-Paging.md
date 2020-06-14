@@ -1,4 +1,4 @@
-## demand paing
+## demand paging
 
 메모리 관리 메커니즘을 사용해서 여러 프로세스가 시스템의 메모리를 효율적으로 공유할 수 있도록 하는 기술
 
@@ -66,7 +66,7 @@ Thrashing
 
 
 
-residente bit
+residence bit
 
 대상 페이지가 피지컬 메모리에 있는지 스왑 디바이스에 있는지를 표시하는 페이지 테이블의 플래그 비트
 
@@ -93,7 +93,7 @@ page fault 의 처리가 다른 인터럽트에 비해 어려운 이유
 
 - page selection policy
   - 페이지를 필요로 할 때 어떤 페이지를 어떤 순서로 가져오럭ㄴ가
-- page replacement poliicy
+- page replacement policy
   - 램이 꽉 찼을 때 어느 페이지를 버리는가
 - page replacement style
   - global vs local
@@ -104,7 +104,7 @@ page fault 의 처리가 다른 인터럽트에 비해 어려운 이유
 
 
 
-**page selectoin policy**
+**page selection policy**
 
 이상적인 페이지 선택 정책
 
@@ -136,7 +136,7 @@ Request paging(overlay)
 - fifo: 시작부터 끝까지 동작해야하는 프로세스가 단순히 로드된지 오래됐다고 교체대상이 되는것은 좋은 정책이 아니다.
 - opt: 최적화
 - LRU: 최근 가장 사용되지 않은 페이지 교체. 시간적 지역성에 기반한 페이지 교체 정책.
-  - refrence bit(use bit): 메인 메모리에 로드된 페이지가 엑세스되면 set 되는 비트 플래그. 
+  - reference bit(use bit): 메인 메모리에 로드된 페이지가 엑세스되면 set 되는 비트 플래그. 
 
 
 
