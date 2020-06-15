@@ -157,4 +157,25 @@ n개의 frame 으로 구성된 메모리에 로드된 페이지들이 항상 N+1
 LRU approximation
 
 - clock algorithm
-  - clock hand 가 가리키는 page 의 reference bit가 1인 경우, 0으로 바꾸고 clock hand 가 다음 페이지를 가리키도록 한다. 이 과정을 반복하다가 레퍼런스 비트가 0인 페이지를 만나면 해당 페이지를 교체한다.
+  - clock hand 가 가리키는 page 의 reference bit 가 1인 경우, 0으로 바꾸고 clock hand 가 다음 페이지를 가리키도록 한다. 이 과정을 반복하다가 레퍼런스 비트가 0인 페이지를 만나면 해당 페이지를 교체한다.
+ 
+ reference bit 가 제공되지 않을 경우에는 FIFO 기법을 사용한다. 하지만 FIFO 의 경우 먼저 할당된 페이지가 무조건 먼저 해제된다는 문제가 있기 때문에 메모리 관리 기법으로는 적합하지 않다. 따라서 FIFO 의 대안으로 frame buffering 이 사용된다.
+ 
+ **frame buffering**
+ 
+ 사용중인 페이지(used page frame)와 가용 페이지(free page frame)가 연결리스트로 구현되어 있음.
+ 
+ 새로 할당되는 메모리는 먼저 가용 페이지에서 페이지를 할당받음.
+ 
+ page replacement style
+ 
+ - global replacement
+   - 모든 페이지가 단일 replacement pool 에 들어가 있다.
+   - 각각의 프로세스는 페이지 프레임에 대해 다른 프로세스들과 경쟁한다.
+   - 메모리를 지나치게 사용하는 프로세스가 있다면 전체에게 악영향을 끼친다.
+ - per-process replacement
+   - 각각의 프로세스는 자신의 페이지 풀을 가지고 있다.
+   - 프로세스에서 페이지 폴트가 발생하면 해당 프로세스의 페이지 풀 대에서만 교체 가능하다.
+   - 운영체제는 단위 시간 동안 page fault 발생 횟수를 확인하여 프로세스의 메모리가 부족한지를 확인할 수 있다.
+ - per-job replacement
+   - 유저 단위로 페이지 풀을 할당받는다. 
