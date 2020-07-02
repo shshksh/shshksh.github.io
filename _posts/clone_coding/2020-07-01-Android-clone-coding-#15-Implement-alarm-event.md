@@ -30,33 +30,15 @@ data class AlarmDTO(
 
 알람 데이터를 관리하는 모델
 
+
+
 ## UserFragment
+
+**requestFollow**
 
 ```kotlin
 fun requestFollow() {
-    var tsDocFollowing = firestore?.collection("users")?.document(currentUserId!!)
-    firestore?.runTransaction { transaction ->
-        var followDTO = transaction.get(tsDocFollowing!!).toObject(FollowDTO::class.java)
-        if (followDTO == null) {
-            followDTO = FollowDTO()
-            followDTO!!.followingCount = 1
-            followDTO!!.followings[uid!!] = true
-
-            transaction.set(tsDocFollowing, followDTO)
-            return@runTransaction
-        }
-
-        if (followDTO.followings.containsKey(uid)) {
-            followDTO?.followingCount = followDTO?.followingCount - 1
-            followDTO?.followings?.remove(uid)
-        } else {
-            followDTO?.followingCount = followDTO?.followingCount + 1
-            followDTO?.followings[uid!!] = true
-        }
-        transaction.set(tsDocFollowing, followDTO)
-        return@runTransaction
-    }
-
+    // ...
     var tsDocFollower = firestore?.collection("users")?.document(uid!!)
     firestore?.runTransaction { transaction ->
         var followDTO = transaction.get(tsDocFollower!!).toObject((FollowDTO::class.java))
@@ -84,7 +66,11 @@ fun requestFollow() {
 }
 ```
 
+팔로우를 누를 때 마다 follwer 알람 호출
 
+
+
+**followerAlarm**
 
 ```kotlin
 fun followerAlarm(destinationUid: String) {
@@ -98,25 +84,30 @@ fun followerAlarm(destinationUid: String) {
 }
 ```
 
+팔로우 데이터를 저장하는 모델
+
 
 
 ## DetailViewFragment
 
-
+**onBindViewHolder**
 
 ```kotlin
-fun favoriteAlarm(destinationUid: String) {
-    var alarmDTO = AlarmDTO()
-    alarmDTO.destinationUid = destinationUid
-    alarmDTO.userId = FirebaseAuth.getInstance().currentUser?.email
-    alarmDTO.uid = FirebaseAuth.getInstance().currentUser?.uid
-    alarmDTO.kind = 0
-    alarmDTO.timestamp = System.currentTimeMillis()
-    FirebaseFirestore.getInstance().collection("alarms").document().set(alarmDTO)
+override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
+    viewholder.detailviewitem_comment_imageview.setOnClickListener { v ->
+        var intent = Intent(v.context, CommentActivity::class.java)
+        intent.putExtra("contentUid", contentUidList[p1])
+        intent.putExtra("destinationUid", contentDTOs[p1].uid)
+        startActivity(intent)
+    }
 }
 ```
 
+댓글 이미지 클릭 시 CommentActivity에 destinationUid 를 인텐트로 넘겨주는 코드 추가.
 
+
+
+**favoriteEvent**
 
 ```kotlin
 fun favoriteEvent(position: Int) {
@@ -131,68 +122,45 @@ fun favoriteEvent(position: Int) {
         } else {
             contentDTO?.favoriteCount = contentDTO?.favoriteCount?.plus(1)
             contentDTO?.favorites[uid!!] = true
-            favoriteAlarm(contentDTOs[position].uid!!)
+            favoriteAlarm(contentDTOs[position].uid!!) // 추가된 라인
         }
         transaction.set(tsDoc, contentDTO)
     }
 }
 ```
 
+좋아요 버튼 클릭 시 알람을 울리는 라인 추가
 
+
+
+**favoriteAlarm**
 
 ```kotlin
-override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
-    var viewholder = (p0 as CustomViewHolder).itemView
-
-    viewholder.detailviewitem_profile_textview.text = contentDTOs!![p1].userId
-
-    Glide.with(p0.itemView.context).load(contentDTOs!![p1].imageUrl)
-        .into(viewholder.detailviewitem_imageview_content)
-
-    viewholder.detailviewitem_explain_textview.text = contentDTOs!![p1].explain
-
-    viewholder.detailviewitem_favoritecounter_textview.text = "Likes " + contentDTOs!![p1].favoriteCount
-
-    viewholder.detailviewitem_favorite_imageview.setOnClickListener {
-        favoriteEvent(p1)
-    }
-
-    if (contentDTOs!![p1].favorites.containsKey(uid)) {
-        viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite)
-    } else {
-        viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.ic_favorite_border)
-    }
-
-    viewholder.detailviewitem_profile_image.setOnClickListener {
-        var fragment = UserFragment()
-        var bundle = Bundle()
-        bundle.putString("destinationUid", contentDTOs[p1].uid)
-        bundle.putString("userId", contentDTOs[p1].userId)
-        fragment.arguments = bundle
-        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_content, fragment)?.commit()
-    }
-    viewholder.detailviewitem_comment_imageview.setOnClickListener { v ->
-        var intent = Intent(v.context, CommentActivity::class.java)
-        intent.putExtra("contentUid", contentUidList[p1])
-        intent.putExtra("destinationUid", contentDTOs[p1].uid)
-        startActivity(intent)
-    }
+fun favoriteAlarm(destinationUid: String) {
+    var alarmDTO = AlarmDTO()
+    alarmDTO.destinationUid = destinationUid
+    alarmDTO.userId = FirebaseAuth.getInstance().currentUser?.email
+    alarmDTO.uid = FirebaseAuth.getInstance().currentUser?.uid
+    alarmDTO.kind = 0
+    alarmDTO.timestamp = System.currentTimeMillis()
+    FirebaseFirestore.getInstance().collection("alarms").document().set(alarmDTO)
 }
 ```
+
+알람 데이터 모델을 데이터 베이스에 저장.
 
 
 
 ## CommentActivity
 
+**onCreate**
+
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_comment)
-    contentUid = intent.getStringExtra("contentUid")
+    // ...
     destinationUid = intent.getStringExtra("destinationUid")
 
-    comment_recyclerview.adapter = CommentRecyclerviewAdapter()
-    comment_recyclerview.layoutManager = LinearLayoutManager(this)
+    // ...
 
     comment_btn_send?.setOnClickListener {
         var comment = ContentDTO.Comment()
@@ -200,17 +168,19 @@ override fun onCreate(savedInstanceState: Bundle?) {
         comment.uid = FirebaseAuth.getInstance().currentUser?.uid
         comment.comment = comment_edit_message.text.toString()
         comment.timestamp = System.currentTimeMillis()
-
         FirebaseFirestore.getInstance().collection("images").document(contentUid!!).collection("comments")
-            .document().set(comment)
+        .document().set(comment)
         commentAlarm(destinationUid!!, comment_edit_message.text.toString())
         comment_edit_message.setText("")
-
     }
 }
 ```
 
+인텐트로부터 destinationUid 를 받아 초기화.
 
+댓글 버튼의 클릭 리스너에 알람을 울리는 코드를 추가.
+
+**commentAlarm**
 
 ```kotlin
 fun commentAlarm(destinationUid: String, message: String) {
@@ -224,21 +194,15 @@ fun commentAlarm(destinationUid: String, message: String) {
 }
 ```
 
+알람의 데이터 모델을 만들어 데이터베이스에 저장.
 
+
+
+**onBindViewHolder**
 
 ```kotlin
 override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
-    var view = p0.itemView
-    view.commentviewitem_textview_comment.text = comments[p1].comment
-    view.commentviewitem_textview_profile.text = comments[p1].userId
-
-    FirebaseFirestore.getInstance()
-        .collection("profileImages")
-        .document(comments[p1].uid!!)
-        .get()
-        .addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                var url = task.result!!["image"]
+    // ...
          		 Glide.with(p0.itemView.context).load(url).apply(RequestOptions().circleCrop())
                     .into(view.commentviewitem_imageview_profile)
             }
@@ -247,3 +211,4 @@ override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
 }
 ```
 
+댓글 작성자의 프로필 사진을 가져와서 바인딩.
