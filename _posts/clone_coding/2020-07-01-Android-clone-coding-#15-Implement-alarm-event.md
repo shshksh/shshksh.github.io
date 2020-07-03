@@ -188,6 +188,7 @@ fun commentAlarm(destinationUid: String, message: String) {
     alarmDTO.destinationUid = destinationUid
     alarmDTO.userId = FirebaseAuth.getInstance().currentUser?.email
     alarmDTO.uid = FirebaseAuth.getInstance().currentUser?.uid
+    alarmDTO.kind = 1
     alarmDTO.timestamp = System.currentTimeMillis()
     alarmDTO.message = message
     FirebaseFirestore.getInstance().collection("alarms").document().set(alarmDTO)

@@ -16,7 +16,7 @@
 
 입출력 장치의 레지스터에 접근하는 두 가지 방법
 
-1. mamory-mapped I/O
+1. memory-mapped I/O
 2. port-mapped I/O
 
 운영체제가 장치들을 제어 한다는것은 결국엔 디바이스에 존재하는 레지스터를 프로그래밍 하는 것이다.
