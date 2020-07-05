@@ -1,4 +1,3 @@
-```
 ---
 title: "하울 안드로이드 인스타그램 클론 코딩 #16 알람 리스트 페이지 만들기"
 excerpt: ""
@@ -13,7 +12,6 @@ read_time: false
 last_modified_at: 2020-07-03T19:05:00+09:00
 toc: true
 ---
-```
 
 
 
